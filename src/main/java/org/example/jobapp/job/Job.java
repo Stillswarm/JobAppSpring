@@ -1,23 +1,27 @@
 package org.example.jobapp.job;
 
 import jakarta.persistence.*;
+import org.example.jobapp.company.Long;
 
 @Entity
 //@Table(name = "job_table")
 public class Job {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private java.lang.Long id;
     private String title;
-    private String desc;
+    private String description;
     private String maxSalary;
     private String minSalary;
     private String location;
 
-    public Job(Long id, String title, String desc, String maxSalary, String minSalary, String location) {
+    @ManyToOne
+    private Long company;
+
+    public Job(java.lang.Long id, String title, String description, String maxSalary, String minSalary, String location) {
         this.id = id;
         this.title = title;
-        this.desc = desc;
+        this.description = description;
         this.maxSalary = maxSalary;
         this.minSalary = minSalary;
         this.location = location;
@@ -27,11 +31,11 @@ public class Job {
 
     }
 
-    public Long getId() {
+    public java.lang.Long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(java.lang.Long id) {
         this.id = id;
     }
 
@@ -43,12 +47,12 @@ public class Job {
         this.title = title;
     }
 
-    public String getDesc() {
-        return desc;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc;
+    public void setDescription(String desc) {
+        this.description = desc;
     }
 
     public String getMaxSalary() {
@@ -73,5 +77,13 @@ public class Job {
 
     public void setLocation(String location) {
         this.location = location;
+    }
+
+    public Long getCompany() {
+        return company;
+    }
+
+    public void setCompany(Long company) {
+        this.company = company;
     }
 }

@@ -50,7 +50,7 @@ public class JobServiceImpl implements JobService {
         if (jobOptional.isPresent()) {
             Job job = jobOptional.get();
             job.setTitle(updatedJob.getTitle());
-            job.setDesc(updatedJob.getDesc());
+            job.setDescription(updatedJob.getDescription());
             job.setMaxSalary(updatedJob.getMaxSalary());
             job.setMinSalary(updatedJob.getMinSalary());
             job.setLocation(updatedJob.getLocation());
